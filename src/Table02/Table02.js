@@ -15,6 +15,7 @@ export default function Table02() {
           create your own &lt;TableComponent_02 /&gt; that will render the same UI if provided with the same props as &lt;TableComponent02 /&gt; above 
         </li>
         <li>Try not looking at the content of TableComponent02.js</li>
+        <li>Use header arrays from headers02.js</li>
       </ul>
       <hr />
       <TableComponent02
