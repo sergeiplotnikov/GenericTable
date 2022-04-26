@@ -5,16 +5,18 @@ export default function TableComponent04(props) {
     function renderCell(header) {
       const cellContent = dataRow[header.path];
       return (
-        <td>{header.mutator ? header.mutator(cellContent) : cellContent}</td>
+        <td key={dataRow.id + header.path}>{header.mutator ? header.mutator(cellContent) : cellContent}</td>
       );
     }
-    return <tr>{props.headers.map(renderCell)}</tr>;
+    return <tr key={dataRow.id}>{props.headers.map(renderCell)}</tr>;
   }
 
   function renderTable(data, headers) {
     return (
       <table border="1" style={{ width: '100%' }}>
-        <thead>{headers.map(renderHeader)}</thead>
+        <thead>
+          <tr>{headers.map(renderHeader)}</tr>
+        </thead>
         <tbody>{data.map(renderDataRow)}</tbody>
       </table>
     );
@@ -24,9 +26,9 @@ export default function TableComponent04(props) {
     const filteredRows = [];
     for (let i = 0; i < props.data.length; i++) {
       if (props.data[i][props.groupBy] == groupingValue)
-      filteredRows.push(props.data[i]);
+        filteredRows.push(props.data[i]);
     }
-    return renderTable(filteredRows, props.headers);
+    return <div key={'group:' + groupingValue}>{renderTable(filteredRows, props.headers)}</div>;
   }
 
   function getUniqueGroupingValues(groupBy, data) {
@@ -48,5 +50,5 @@ export default function TableComponent04(props) {
 }
 
 function renderHeader(header) {
-  return <th>{header.title}</th>;
+  return <th key={header.path}>{header.title}</th>;
 }

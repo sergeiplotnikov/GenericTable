@@ -15,7 +15,7 @@ export default function TableComponent03(props) {
 
   return (
     <table border="1" style={{ width: '100%' }}>
-      <thead>{props.headers.map(renderHeader)}</thead>
+      <thead><tr>{props.headers.map(renderHeader)}</tr></thead>
       <tbody>{props.data.map(renderDataRow)}</tbody>
     </table>
   );
