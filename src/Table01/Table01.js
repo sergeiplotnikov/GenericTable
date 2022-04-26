@@ -14,6 +14,7 @@ export default function Table01() {
         <li>This is very similar to table in &lt;CC10 /&gt;</li>
         <li>Try not looking at the content of TableComponent01.js</li>
       </ul>
+      <h3>Each of the examples in this project is progression of the previous example. You should complete an example before moving to the next one.</h3>
     </>
   );
 }
