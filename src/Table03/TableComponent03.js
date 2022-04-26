@@ -4,15 +4,13 @@ export default function TableComponent03(props) {
   function renderDataRow(dataRow) {
     function renderCell(header) {
       const cellContent = dataRow[header.path];
-      return <td>{ header.mutator ? header.mutator(cellContent) : cellContent}</td>;
+      return (
+        <td key={dataRow.id + header.path}>
+          {header.mutator ? header.mutator(cellContent) : cellContent}
+        </td>
+      );
     }
-    return (
-      <tr>
-        {
-          props.headers.map(renderCell)
-        }
-      </tr>
-    );
+    return <tr key={dataRow.id}>{props.headers.map(renderCell)}</tr>;
   }
 
   return (
@@ -24,5 +22,5 @@ export default function TableComponent03(props) {
 }
 
 function renderHeader(header) {
-  return <th>{header.title}</th>;
+  return <th key={header.path}>{header.title}</th>;
 }

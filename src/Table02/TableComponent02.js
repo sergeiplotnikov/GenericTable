@@ -3,10 +3,10 @@ import React from 'react';
 export default function TableComponent02(props) {
   function renderDataRow(dataRow) {
     function renderCell(header) {
-      return <td>{dataRow[header.path]}</td>;
+      return <td key={dataRow.id + header.path}>{dataRow[header.path]}</td>;
     }
     return (
-      <tr>
+      <tr key={dataRow.id}>
         {
           props.headers.map(renderCell)
         }
@@ -23,5 +23,5 @@ export default function TableComponent02(props) {
 }
 
 function renderHeader(header) {
-  return <th>{header.title}</th>;
+  return <th key={header.path}>{header.title}</th>;
 }
