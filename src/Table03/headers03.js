@@ -1,3 +1,5 @@
+import React from 'react';
+
 export { headers03_01, headers03_02, headers03_03 };
 
 function prettyDate(dataIsoString) {
@@ -7,11 +9,15 @@ function prettyDate(dataIsoString) {
 function prettyStatus(status) {
   switch (status) {
     case 'available':
-      return '🟩';
+      return (
+        <div style={{ backgroundColor: 'green', color: 'white' }}>
+          AVAILABLE
+        </div>
+      );
     case 'away':
-      return '🟨';
+      return <div style={{ backgroundColor: 'yellow' }}>Away</div>;
     case 'busy':
-      return '🟥';
+      return <div style={{ backgroundColor: 'red', color: 'white' }}>BUSY</div>;
   }
 }
 const headers03_01 = [
