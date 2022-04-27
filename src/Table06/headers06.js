@@ -1,6 +1,6 @@
 import React from 'react';
 
-export { headers05_01, rowActions05 };
+export { headers06_01, rowActions06 };
 
 function prettyDate(dataIsoString) {
   return new Date(dataIsoString).toDateString();
@@ -20,7 +20,16 @@ function prettyStatus(status) {
       return <div style={{ backgroundColor: 'red', color: 'white' }}>BUSY</div>;
   }
 }
-const headers05_01 = [
+
+function numberComparator(a, b) {
+  return a > b;
+}
+
+function dateComparator(a, b) {
+  return (new Date(a)).getTime() > (new Date(b)).getTime();
+}
+
+const headers06_01 = [
   {
     title: 'ID',
     path: 'id',
@@ -32,11 +41,13 @@ const headers05_01 = [
   {
     title: 'Some number',
     path: 'someNumber',
+    comparator: numberComparator,
   },
   {
     title: 'Some Date',
     path: 'someDate',
     mutator: prettyDate,
+    comparator: dateComparator,
   },
   {
     title: 'Status',
@@ -45,7 +56,7 @@ const headers05_01 = [
   },
 ];
 
-const rowActions05 = [
+const rowActions06 = [
   {
     title: 'get String',
     callback: getString,

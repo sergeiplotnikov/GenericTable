@@ -1,5 +1,5 @@
 import React from 'react';
-import { TableComponent05, headers05_01, headers05_02 } from './';
+import { TableComponent05, headers05_01 } from './';
 import tableData from '../tableData';
 import { rowActions05 } from './';
 
@@ -19,7 +19,7 @@ export default function Table05() {
       <hr />
       <TableComponent05
         data={tableData}
-        headers={headers05_02}
+        headers={headers05_01}
         rowActions={rowActions05}
       />
     </>
